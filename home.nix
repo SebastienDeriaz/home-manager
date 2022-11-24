@@ -58,19 +58,40 @@
       ];
     })
     bat
+    entr
     exa
+    expect
     fd
+    fx
     fzf
     inter
     inter-ui
+    material-design-icons
+    moreutils
     neovim-qt
+    nix-index
     nixpkgs-fmt
     noto-fonts-emoji
     ripgrep
     rnix-lsp
     tmate
-    material-design-icons
+    tmux
+    # Python 3.10
+    (python310.withPackages
+      (pkgs: with pkgs; [
+        pytest
+        numpy
+        scipy
+        ipython
+        ipykernel
+        setuptools
+        scipy
+        pip
+      ])
+    )
   ];
+
+
 
   programs.neovim = {
     enable = true;
@@ -176,7 +197,6 @@
   };
 
   xdg.configFile."cabal/config".text = ''
-    nix: True
     jobs: $ncpus
   '';
 
