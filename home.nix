@@ -1,6 +1,9 @@
 { config, pkgs, ... }:
 
+with import <nixpkgs> { };
 {
+  nixpkgs.config.allowUnfree = true;
+
   # Home Manager needs a bit of information about you and the
   # paths it should manage.
   home.username = "sebastien";
@@ -76,19 +79,21 @@
     rnix-lsp
     tmate
     tmux
+    # VS Code
+    vscode
     # Python 3.10
-    (python310.withPackages
-      (pkgs: with pkgs; [
-        pytest
-        numpy
-        scipy
-        ipython
-        ipykernel
-        setuptools
-        scipy
-        pip
-      ])
-    )
+    #(python310.withPackages
+    #  (pkgs: with pkgs; [
+    #    pytest
+    #    numpy
+    #    scipy
+    #    ipython
+    #    ipykernel
+    #    setuptools
+    #    scipy
+    #    pip
+    #  ])
+    #)
   ];
 
 
@@ -133,6 +138,7 @@
         source /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh
       fi
       # End Nix
+
 
       source ${pkgs.zsh-syntax-highlighting}/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
       source ${pkgs.zsh-history-substring-search}/share/zsh-history-substring-search/zsh-history-substring-search.zsh
@@ -202,6 +208,7 @@
 
   home.sessionVariables = {
     CABAL_CONFIG = "$HOME/.config/cabal/config";
+    NIXPKGS_ALLOW_UNFREE = 1;
   };
 }
 
