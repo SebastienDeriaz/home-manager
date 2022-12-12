@@ -82,18 +82,18 @@ with import <nixpkgs> { };
     # VS Code
     vscode
     # Python 3.10
-    #(python310.withPackages
-    #  (pkgs: with pkgs; [
-    #    pytest
-    #    numpy
-    #    scipy
-    #    ipython
-    #    ipykernel
-    #    setuptools
-    #    scipy
-    #    pip
-    #  ])
-    #)
+    (python310.withPackages
+      (pkgs: with pkgs; [
+        pytest
+        numpy
+        scipy
+        ipython
+        ipykernel
+        setuptools
+        scipy
+        pip
+      ])
+    )
   ];
 
 
