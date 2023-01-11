@@ -98,6 +98,8 @@ with import <nixpkgs> { };
     )
     # SVG to PDF
     svg2pdf
+    # Freeplane
+    freeplane
   ];
 
 
